@@ -13,8 +13,8 @@ export type allProducts = {
 }[];
 
 async function Page({ searchParams }: { searchParams: ProductSearchParams }) {
-  const awaitedSearchParams = await searchParams;
-  const allProducts: allProducts = await getProducts(awaitedSearchParams);
+  // const awaitedSearchParams = await searchParams;
+  const allProducts: allProducts = await getProducts(searchParams);
   const originalProducts: allProducts = await getAllProducts();
   // const [currentUrl, setCurrentUrl] = useState("");
 
