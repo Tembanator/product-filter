@@ -11,10 +11,10 @@ export type allProducts = {
   price: number;
   imageUrl: string;
 }[];
-// @ts-expect-error typescript doesn't recognize the import path
+
 async function Page({ searchParams }: { searchParams: ProductSearchParams }) {
-  // const awaitedSearchParams = await searchParams;
-  const allProducts: allProducts = await getProducts(searchParams);
+  const awaitedSearchParams = await searchParams; // This line is not needed
+  const allProducts: allProducts = await getProducts(awaitedSearchParams);
   const originalProducts: allProducts = await getAllProducts();
   // const [currentUrl, setCurrentUrl] = useState("");
 
