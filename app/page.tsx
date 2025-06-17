@@ -12,8 +12,12 @@ export type allProducts = {
   imageUrl: string;
 }[];
 
-async function Page({ searchParams }: { searchParams: ProductSearchParams }) {
-  const awaitedSearchParams = await searchParams; // This line is not needed
+async function Page({
+  searchParams,
+}: {
+  searchParams: Promise<ProductSearchParams>;
+}) {
+  const awaitedSearchParams = await searchParams;
   const allProducts: allProducts = await getProducts(awaitedSearchParams);
   const originalProducts: allProducts = await getAllProducts();
   // const [currentUrl, setCurrentUrl] = useState("");
